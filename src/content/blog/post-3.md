@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: "El auge de la computación cuántica"
 description: "Cómo los qubits están cambiando el futuro de la computación"
 pubDate: 2024-02-10

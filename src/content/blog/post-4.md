@@ -1,5 +1,4 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
 title: "Desarrollo móvil en 2024: nativo vs multiplataforma"
 description: "Análisis de las mejores opciones para crear apps móviles"
 pubDate: 2024-01-25
