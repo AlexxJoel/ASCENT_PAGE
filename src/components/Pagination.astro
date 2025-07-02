@@ -1,0 +1,42 @@
+---
+interface Props {
+    currentPage: number;
+    totalPages: number;
+    baseUrl: string;
+    class?: string;
+}
+
+const {currentPage, totalPages, baseUrl, class: className} = Astro.props;
+---
+
+<nav class={`${className} w-full`}>
+    <div class="flex items-center justify-center space-x-4">
+        <div>
+            {currentPage > 1 && (
+                    <a
+                            href={`${baseUrl}/${currentPage - 1}`}
+                            class="sm-font-medium bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full font-medium transition duration-300 shadow-lg hover:shadow-xl">
+
+                        Anterior
+                    </a>
+            )}
+        </div>
+
+        <div class="hidden sm:block">
+            <p class="text-sm text-gray-700">
+                Página <span class="font-medium">{currentPage}</span> de <span class="font-medium">{totalPages}</span>
+            </p>
+        </div>
+
+        <div>
+            {currentPage < totalPages && (
+                    <a
+                            href={`${baseUrl}/${currentPage + 1}`}
+                            class="sm-font-medium bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full font-medium transition duration-300 shadow-lg hover:shadow-xl">
+
+                        Siguiente
+                    </a>
+            )}
+        </div>
+    </div>
+</nav>

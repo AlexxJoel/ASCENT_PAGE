@@ -1,0 +1,36 @@
+---
+const links = [
+    { name: "Inicio", url: "/" },
+    { name: "Servicios", url: "/services" },
+    { name: "Blog", url: "/blog/1" },
+    { name: "Contacto", url: "/contact" },
+];
+
+// Obtener la ruta actual
+const currentPath = Astro.url.pathname;
+
+// Función para verificar si un enlace está activo
+const isActive = (url) => {
+    if (url === '/' && currentPath === '/') return true;
+    return url !== '/' && currentPath.startsWith(url);
+};
+---
+<nav class="hidden sm:flex sm:justify-center flex-1">
+    <div class="flex space-x-4">
+        {
+            links.map((link) => (
+                    <a
+                            href={link.url}
+                            class={`px-3 py-2 rounded-md ${
+                                isActive(link.url)
+                                    ? "font-bold text-white"
+                                    : "font-medium text-gray-500 hover:text-gray-400"
+                            }`}
+                            aria-current={isActive(link.url) ? "page" : undefined}
+                    >
+                        {link.name}
+                    </a>
+            ))
+        }
+    </div>
+</nav>

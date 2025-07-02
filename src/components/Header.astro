@@ -1,55 +1,80 @@
 ---
-import HeaderLink from './HeaderLink.astro';
+import Nav from "./Nav.astro";
 ---
-<header>
-    <nav class="py-6 relative">
-        <div class="flex container mx-auto w-11/12 px-8 xl:px-5 ">
-            <!-- Logo -->
-            <div class="flex flex-grow">
-                <img  src="/assets/images/logo_navbar.webp" alt="LOGO DE ASCENT" class="w-25 h-9"/>
+<header class="bg-black text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+            <!-- Logo (izquierda) -->
+            <div class="flex-shrink-0 flex items-center">
+                <a href="/">
+                    <img class="h-8 w-auto" src="/assets/images/ASCENT_WHITE_Large.png" alt="Logo">
+                </a>
             </div>
 
-
-            <div class="lg:hidden" onclick="toggleMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                     stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-                </svg>
+            <!-- Botón de menú móvil -->
+            <div class="flex sm:hidden">
+                <button type="button" id="mobile-menu-button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                    <span class="sr-only">Abrir menú principal</span>
+                    <!-- Icono del menú -->
+                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <!-- Icono para cerrar -->
+                    <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M6 18L18 6M6 6l12 12"/>
+                </button>
             </div>
 
-            <!-- Navigation Links -->
-            <div id="menu" class="lg:flex hidden flex-grow justify-between absolute lg:relative top-20 lg:top-0  left-0 z-10 lg:z-0 py-4 lg:py-0 px-8 lg:px-0 shadow-lg lg:shadow-none w-full lg:w-auto bg-white lg:bg-transparent">
-                    <ul class="flex md:flex-row flex-col md:items-center gap-[4vw]">
-                        <li>
-                            <HeaderLink href="/">Inicio</HeaderLink>
-                        </li>
-                        <li>
-                            <HeaderLink href="/services">Servicios</HeaderLink>
-                        </li>
-                        <li>
-                            <HeaderLink href="/portfolio">Blog</HeaderLink>
-                        </li>
-                        <li>
-                            <HeaderLink href="/about">Acerca de mí</HeaderLink>
-                        </li>
-                    </ul>
-                <div class="flex flex-col md:flex-row  gap-4 md:gap-8 text-center mt-3 lg:mt-0">
-                    <a href="/contact"
-                       class="border border-black px-4 py-2 rounded hover:bg-black hover:text-white transition duration-300 ease-in-out">
-                        Contactar
-                    </a>
-                </div>
+            <!-- Enlaces de navegación (centro) - Visible en pantallas medianas y grandes -->
+            <Nav />
+
+            <!-- Botón CTA (derecha) -->
+            <div class="hidden sm:flex items-center">
+                <button class="bg-transparent border border-white text-white px-4 py-1 rounded hover:bg-white hover:text-black transition">
+                    Contáctanos
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+
+    <!-- Menú móvil, visible solo en pantallas pequeñas -->
+    <div class="sm:hidden hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#" class="text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md font-medium">Inicio</a>
+            <a href="#" class="text-gray-500 hover:bg-gray-100 block px-3 py-2 rounded-md font-medium">Servicios</a>
+            <a href="#" class="text-gray-500 hover:bg-gray-100 block px-3 py-2 rounded-md font-medium">Productos</a>
+            <a href="#" class="text-gray-500 hover:bg-gray-100 block px-3 py-2 rounded-md font-medium">Contacto</a>
+
+            <!-- Botón CTA en modo móvil -->
+            <div class="mt-4">
+                <button class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Comenzar
+                </button>
+            </div>
+        </div>
+    </div>
 </header>
 
-<script is:inline>
-    const toggleMenu = () => {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('hidden');
-    }
+<script type="module">
+    // JavaScript para controlar el menú móvil
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = mobileMenuButton.querySelector('svg:first-child');
+        const closeIcon = mobileMenuButton.querySelector('svg:last-child');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isMenuOpen = mobileMenu.classList.toggle('hidden');
+
+            menuIcon.classList.toggle('hidden', !isMenuOpen);
+            closeIcon.classList.toggle('hidden', isMenuOpen);
+        });
+    });
 </script>
 
 

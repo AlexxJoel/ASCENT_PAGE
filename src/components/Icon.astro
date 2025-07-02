@@ -1,0 +1,5 @@
+---
+// Icon.astro
+const { icon, color = 'text-gray-500', size = 'h-6 w-6' } = Astro.props;
+---
+<i class={`iconify ${size} ${color}`} data-icon={icon} ></i>

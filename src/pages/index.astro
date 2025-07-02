@@ -1,224 +1,433 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-const slides = [
-    {id: 1, image: "https://via.placeholder.com/800x400?text=Slide+1", alt: "Slide 1"},
-    {id: 2, image: "https://via.placeholder.com/800x400?text=Slide+2", alt: "Slide 2"},
-    {id: 3, image: "https://via.placeholder.com/800x400?text=Slide+3", alt: "Slide 3"},
-];
-
-const section3Img = "https://via.placeholder.com/800x400";
-
-
-const services = [
-    {
-        title: "Consultoría",
-        description: "Ofrecemos servicios de consultoría en tecnología de la información y desarrollo de software."
-    },
-    {title: "Creación de circuitos", description: "Diseñamos y creamos circuitos electrónicos para tus proyectos."},
-    {title: "Soporte técnico", description: "Brindamos soporte técnico para tus sistemas y aplicaciones."}
-];
-
+const LogoAscentWhiteLarge = "/assets/images/ASCENT_WHITE_Large.png";
 ---
 
-<Layout title="Inicio">
-    <section class="bg-gray-200 text-dark">
-        <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-[calc(100vh-4rem)] lg:items-center lg:justify-center">
-            <div class="mx-auto max-w-3xl text-center">
-                <h1
-                        class="bg-gradient-to-r from-zinc-700 to-black bg-clip-text text-transparent text-3xl font-extrabold sm:text-5xl"
-                >
-                    El mejor servicio al alcance de tu mano.
-                    <span class="sm:block"> ¡Descúbrelo ahora!</span>
+<BaseLayout title="Inicio - ASCENT">
+    <!-- Hero Section -->
+    <section id="inicio"
+             class="bg-gradient-to-br from-gray-900 to-black py-12 md:py-20 px-4 min-h-screen flex items-center">
+        <div class="container mx-auto text-center text-white">
+            <div class="flex items-center justify-center">
+                <img alt="ASCENT Logo"
+                     class="h-16 md:h-20 mb-8"
+                     style="object-fit: contain;"
+                     src={LogoAscentWhiteLarge}/>
+            </div>
+            <div class="typewriter container mx-auto text-center text-white">
+                <h1  id="typewriter-text" class="text-3xl md:text-5xl font-bold mb-4 max-w-3xl mx-auto">
+                    Soluciones inteligentes para un mundo industrial más conectado.
                 </h1>
+            </div>
+            <p class="max-w-2xl mx-auto mb-10 text-gray-300 text-lg">
+                En ASCENT nos especializamos en automatizar procesos industriales, recolectando y
+                analizando datos en tiempo real para optimizar la productividad. Desarrollamos soluciones
+                avanzadas, ofreciendo un control total y una mejora continua en la eficiencia operativa de
+                tu empresa.
+            </p>
 
-                <p class="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-                    Ascent es una empresa de servicios de consultoría en tecnología de la información y desarrollo de
-                    software.
-                </p>
-
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <a class="block w-full rounded border text-white bg-black px-12 py-3 text-sm font-medium hover:bg-transparent hover:text-black hover:border-black focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                       href="#">
-                        Conocer nuestros servicios
-                    </a>
-                    <a class="block w-full rounded border border-black bg-transparent px-12 py-3 text-sm font-medium text-black hover:bg-zinc-950 hover:text-white focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-                       href="#">
-                        Contáctanos
-                    </a>
+            <!-- Íconos de características principales -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center p-4 bg-black/30 rounded-lg backdrop-blur-sm hover:transform hover:scale-105 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-400 mb-4" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                              d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                    </svg>
+                    <h3 class="font-bold text-xl mb-2">Automatización</h3>
+                    <p class="text-gray-300">Sistemas inteligentes que optimizan tus procesos industriales</p>
                 </div>
+                <div class="flex flex-col items-center p-4 bg-black/30 rounded-lg backdrop-blur-sm hover:transform hover:scale-105 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-400 mb-4" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <h3 class="font-bold text-xl mb-2">Análisis de Datos</h3>
+                    <p class="text-gray-300">Información en tiempo real para tomar mejores decisiones</p>
+                </div>
+                <div class="flex flex-col items-center p-4 bg-black/30 rounded-lg backdrop-blur-sm hover:transform hover:scale-105 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-400 mb-4" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                              d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <h3 class="font-bold text-xl mb-2">Eficiencia</h3>
+                    <p class="text-gray-300">Soluciones que aumentan la productividad y reducen costos</p>
+                </div>
+            </div>
 
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#contact"
+                   class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition duration-300 shadow-lg hover:shadow-xl">
+                    Contáctanos
+                </a>
+                <a href="#servicios"
+                   class="px-8 py-3 text-white border border-white/30 rounded-full hover:bg-white/10 transition duration-300 flex items-center justify-center">
+                    Conocer nuestros servicios
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="my-6 mt-24">
-        <div class="relative w-full max-w-4xl mx-auto overflow-hidden">
-            <!-- Slides -->
-            <div
-                    class="flex transition-transform duration-500"
-                    id="carousel"
-                    style="transform: translateX(0);"
-            >
-                {slides.map((slide) => (
-                        <div class="w-full flex-shrink-0">
-                            <img src={slide.image} alt={slide.alt} class="w-full"/>
+    <!-- Experience Section con diseño mejorado -->
+    <section id="us" class="bg-gradient-to-br from-gray-900 to-black py-16 md:py-24 px-6 md:px-12 text-white">
+        <div class="container mx-auto">
+            <!-- Encabezado de sección más destacado -->
+            <div class="text-center mb-16">
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-6"></div>
+
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fadeIn">
+                    Nuestra Experiencia
+                </h2>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Transformando la industria con tecnología de
+                    vanguardia</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2">
+                    <!-- Contenedor de imagen con efecto de marco -->
+                    <div class="relative">
+                        <div class="absolute inset-0 border-2 border-blue-500 rounded-lg transform translate-x-4 translate-y-4"></div>
+                        <img src="/assets/images/1742278127383.jpg" alt="Tecnología industrial"
+                             class="object-cover rounded-lg shadow-xl relative z-10 w-full h-96 md:h-[500px]"/>
+
+                        <!-- Badge flotante con estadística -->
+                        <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-4 rounded-lg shadow-lg z-20">
+                            <p class="text-3xl font-bold">150+</p>
+                            <p class="text-sm uppercase">Proyectos completados</p>
                         </div>
-                ))}
-            </div>
-
-            <!-- Navigation Buttons -->
-            <button
-                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
-                    id="prevButton"
-            >
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                     width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="m15 19-7-7 7-7"/>
-                </svg>
-            </button>
-            <button
-                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
-                    id="nextButton"
-            >
-                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                     width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="m9 5 7 7-7 7"/>
-                </svg>
-            </button>
-
-            <!-- Indicators -->
-            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                {slides.map((_, index) => (
-                        <button
-                                class={`w-3 h-3 rounded-full ${
-                                    index === 0 ? "bg-gray-800" : "bg-gray-300"
-                                }`}
-                                data-slide={index}
-                        ></button>
-                ))}
-            </div>
-        </div>
-
-    </section>
-
-
-    <section class="mt-24">
-        <div class="max-w-screen p-10 bg-gray-200">
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8 py-20">
-                <div>
-                    <div class="max-w-lg md:max-w-none">
-                        <h2 class="text-xl font-semibold text-gray-900 sm:text-5xl">
-                            Experiencia en diversos proyectos
-                        </h2>
-
-                        <p class="mt-8 text-gray-700">
-                            Cada proyecto a realizar se toma com gran reponsabilidad, entusisasmo y buena organización
-                        </p>
                     </div>
                 </div>
 
-                <div>
-                    <img src={section3Img} alt={section3Img}/>
+                <div class="md:w-1/2 text-white">
+                    <div class="w-24 h-1 bg-blue-500 mb-6"></div>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">Soluciones adaptadas a tu industria</h2>
+
+                    <!-- Lista de características con íconos -->
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">Experiencia Comprobada</h3>
+                                <p class="text-gray-300">Nuestro equipo cuenta con amplia experiencia en automatización
+                                    industrial y desarrollo de soluciones tecnológicas adaptadas a necesidades
+                                    específicas.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">Tecnología de Punta</h3>
+                                <p class="text-gray-300">Implementamos sistemas que optimizan la producción y mejoran la
+                                    eficiencia operativa, utilizando tecnologías avanzadas en diversos entornos
+                                    industriales.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-600/20 p-3 rounded-lg mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">Equipo Dedicado</h3>
+                                <p class="text-gray-300">Cada proyecto lo abordamos con responsabilidad, entusiasmo y
+                                    organización, asegurando resultados que superen las expectativas de nuestros
+                                    clientes.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Consulting Section -->
+    <section class="relative w-full h-screen bg-black overflow-hidden">
+        <!-- Video de fondo optimizado para Astro -->
+        <video
+                class="absolute top-0 left-0 w-full h-full object-cover z-0"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto">
+            <source src="/assets/images/1742278127383.jpg" type="video/mp4"/>
+            Tu navegador no soporta videos en HTML5.
+        </video>
 
-    <section class="py-10">
-        <div class="max-w-screen-xl mx-auto px-4 py-10">
-            <h2 class="text-3xl font-semibold text-gray-900 sm:text-5xl">
-                Nuestros servicios
+        <!-- Overlay gradiente para mejor legibilidad -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40 z-10"></div>
+
+        <!-- Contenido -->
+        <div class="relative z-20 flex items-center justify-center h-full px-4 md:px-12">
+            <div class="text-center text-white max-w-4xl mx-auto">
+                <!-- Título con animación -->
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fadeIn">
+                    Nosotros te asesoramos <span class="text-blue-400">sin costo</span>
+                </h1>
+
+                <!-- Descripción con mejor tipografía -->
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6 text-gray-200 animate-fadeIn delay-150 leading-relaxed">
+                    En un mundo industrial avanzado, nosotros te ayudamos a seguirlo.
+                </p>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-gray-200 animate-fadeIn delay-300 leading-relaxed">
+                    Nuestro equipo de expertos te brindará la mejor asesoría para que puedas implementar soluciones
+                    tecnológicas en tu empresa de manera efectiva y accesible.
+                </p>
+
+                <!-- Iconos de Servicios mejorados -->
+                <div class="flex flex-wrap justify-center gap-8 mb-10">
+                    <div class="flex flex-col items-center group transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-600/20 rounded-full mb-4 group-hover:bg-blue-500/30 transition-all duration-300">
+                            <svg class="w-8 h-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M12 8c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm0 14c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl text-white font-semibold">Asesoría</h3>
+                        <p class="text-sm text-gray-300 mt-1 break-words">Personalizadas</p>
+                    </div>
+
+                    <div class="flex flex-col items-center group transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-600/20 rounded-full mb-4 group-hover:bg-blue-500/30 transition-all duration-300">
+                            <svg class="w-8 h-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl text-white font-semibold">Innovación</h3>
+                        <p class="text-sm text-gray-300 mt-1">Soluciones modernas</p>
+                    </div>
+
+                    <div class="flex flex-col items-center group transition-all duration-300">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-600/20 rounded-full mb-4 group-hover:bg-blue-500/30 transition-all duration-300">
+                            <svg class="w-8 h-8 text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl text-white font-semibold">Tecnología</h3>
+                        <p class="text-sm text-gray-300 mt-1">De vanguardia</p>
+                    </div>
+                </div>
+
+                <!-- Botones de llamada a la acción -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Consúltanos Ahora
+                    </button>
+                    <button
+                            class="bg-transparent border-2 border-white hover:bg-white/10 text-white px-8 py-3 rounded-full font-medium transition duration-300">
+                        Conoce Nuestros Servicios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="servicios"
+             class="bg-gradient-to-br from-black via-gray-800 via-70% to-gray-600 py-12 md:py-20 px-4 md:px-24 text-white">
+        <div class="container mx-auto text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fadeIn">
+                En ASCENT te ayudamos a mejorar el rendimiento, calidad y productividad de tu proceso.
             </h2>
-            <p class="mt-8 text-gray-700">
-                Ofrecemos una amplia gama de servicios de consultoría en tecnología de la información y desarrollo de
-                software.
+            <p class="max-w-2xl mx-auto text-gray-300">
+                Ofrecemos soluciones integrales adaptadas a las necesidades específicas de tu industria.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-3 px-20 md:gap-8 ">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Servicio 1 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-400" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    <h3 class="text-xl font-semibold">Sistemas OEE de un proceso industrial</h3>
+                </div>
+                <p class="text-gray-100">
+                    Un sistema OEE te ayudará a saber qué eficacia tiene tu producción. Medimos y analizamos la
+                    disponibilidad, rendimiento y calidad para mejorar continuamente tus procesos.
+                </p>
+            </div>
 
-            {services.map((service) => (
-                    <div class="bg-gray-100 p-8 rounded-lg">
-                        <h3 class="text-xl font-semibold text-gray-900">
-                            {service.title}
-                        </h3>
-                        <p class="mt-4 text-gray-700">
-                            {service.description}
-                        </p>
-                    </div>
-            ))}
+            <!-- Servicio 2 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-green-400" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                    </svg>
+                    <h3 class="text-xl font-semibold">Sistema ANDON de un proceso industrial</h3>
+                </div>
+                <p class="text-gray-100">
+                    Con un sistema ANDON podrás observar en qué proceso se encuentra tu línea de producción y
+                    recibir alertas en tiempo real sobre problemas que requieren atención.
+                </p>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-purple-400" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
+                    <h3 class="text-xl font-semibold">Automatización de una línea de producción</h3>
+                </div>
+                <p class="text-gray-100">
+                    Mejora la precisión, repetibilidad, calidad y productividad con una línea más automatizada.
+                    Reducimos errores humanos y aumentamos la consistencia de tus productos.
+                </p>
+            </div>
+
+            <!-- Servicio 4 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-red-400" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                    </svg>
+                    <h3 class="text-xl font-semibold">Integración de robots industriales</h3>
+                </div>
+                <p class="text-gray-100">
+                    Integra un robot para procesos repetitivos con problemas de calidad. Nuestras soluciones
+                    robóticas se adaptan perfectamente a tu línea de producción existente.
+                </p>
+            </div>
+
+            <!-- Servicio 5 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-yellow-400" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                    <h3 class="text-xl font-semibold">Sistemas de visión</h3>
+                </div>
+                <p class="text-gray-100">
+                    Con un sistema de visión podrás controlar la calidad de tu producto en tiempo real, detectando
+                    defectos imperceptibles para el ojo humano.
+                </p>
+            </div>
+
+            <!-- Servicio 6 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
+                <div class="flex items-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-300" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <h3 class="text-xl font-semibold">Consultoría y asesoramiento</h3>
+                </div>
+                <p class="text-gray-100">
+                    Ofrecemos servicios de consultoría especializada para analizar tus procesos actuales e
+                    identificar oportunidades de mejora y optimización.
+                </p>
+            </div>
         </div>
-        <!--   See more -->
-       <div class="flex justify-center mt-8">
-           <a
-                   class="inline-flex items-center gap-2 rounded border border-zinc-600 bg-zinc-600 px-8 py-3 text-white hover:bg-transparent hover:text-zinc-600 focus:outline-none focus:ring active:text-zinc-500"
-                   href="#"
-           >
-               <span class="text-sm font-medium"> Ver más </span>
-
-               <svg
-                       class="size-5 rtl:rotate-180"
-                       xmlns="http://www.w3.org/2000/svg"
-                       fill="none"
-                       viewBox="0 0 24 24"
-                       stroke="currentColor"
-               >
-                   <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           stroke-width="2"
-                           d="M17 8l4 4m0 0l-4 4m4-4H3"
-                   />
-               </svg>
-           </a>
-       </div>
-
     </section>
-</Layout>
+</BaseLayout>
+
+<style>
+    * {
+        font-family: monospace ;
+    }
+    .typewriter h1 {
+        font-family: monospace; /* Fuente estilo máquina de escribir */
+        white-space: pre-wrap; /* Permite saltos de línea */
+        word-wrap: break-word; /* Evita que el texto se desborde */
+        overflow: hidden; /* Oculta el texto que aún no se ha "escrito" */
+    }
+
+    /* Animación de aparición */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Animaciones personalizadas que puedes usar con Tailwind */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 0.8s ease forwards;
+    }
+
+    .delay-150 {
+        animation-delay: 0.15s;
+    }
+
+    .delay-300 {
+        animation-delay: 0.3s;
+    }
+
+</style>
 
 <script>
-    let currentIndex = 0;
-    const slides = Array.from(document.querySelectorAll("#carousel > div"));
-    const indicators = Array.from(document.querySelectorAll("[data-slide]"));
+    // JavaScript para el efecto de aparición escalonada
+    const text = document?.getElementById("typewriter-text")?.innerText ?? ""; // Obtenemos el texto
+    if (!text) return; // Si no hay texto, no ejecutar el script
+    document.getElementById("typewriter-text").innerHTML = ""; // Limpiamos el texto
 
-    const updateCarousel = () => {
-        const carousel = document.getElementById("carousel");
-        if (!carousel) return;
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    let i = 0;
+    const speed = 25; // Velocidad en milisegundos (ajusta según prefieras)
 
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle("bg-gray-800", index === currentIndex);
-            indicator.classList.toggle("bg-gray-300", index !== currentIndex);
-        });
-    };
+    function typeWriter() {
+        if (i < text.length) {
+            const span = document.createElement("span");
+            span.textContent = text.charAt(i);
+            span.style.opacity = "0";
+            span.style.animation = `fadeIn 0.5s ${i * speed}ms forwards`;
+            document.getElementById("typewriter-text")?.appendChild(span);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
 
-    const nextSlide = () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateCarousel();
-    };
-
-    const prevSlide = () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateCarousel();
-    };
-
-    document.getElementById("prevButton")?.addEventListener("click", prevSlide);
-    document.getElementById("nextButton")?.addEventListener("click", nextSlide);
-
-    // Auto-play functionality
-    setInterval(() => {
-        nextSlide();
-    }, 5000);
-
-    // Indicator click functionality
-    indicators.forEach((indicator) => {
-        indicator.addEventListener("click", () => {
-            currentIndex = parseInt(indicator.getAttribute("data-slide") ?? "0", 10);
-            updateCarousel();
-        });
-    });
+    typeWriter(); // Inicia la animación
 </script>

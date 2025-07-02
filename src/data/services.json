@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Sistemas OEE",
+    "description": "Medición de eficiencia general de los equipos en procesos industriales.",
+    "icon": "cpu"
+  },
+  {
+    "title": "Sistema ANDON",
+    "description": "Monitoreo visual del estado de producción en tiempo real.",
+    "icon": "activity"
+  },
+  {
+    "title": "Automatización de líneas",
+    "description": "Optimización de procesos mediante soluciones inteligentes.",
+    "icon": "settings"
+  },
+  {
+    "title": "Integración de robots",
+    "description": "Implementación de robótica avanzada en producción.",
+    "icon": "bot"
+  },
+  {
+    "title": "Sistemas de visión",
+    "description": "Inspección automatizada mediante visión artificial.",
+    "icon": "eye"
+  }
+]
+

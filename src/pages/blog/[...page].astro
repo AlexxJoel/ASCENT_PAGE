@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import Pagination from '../../components/Pagination.astro';
+import BlogCard from "../../components/BlogCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {Image} from "@astrojs/image/components";
+
+// Configuración
+const postsPerPage = 6;
+
+// Generar todas las rutas posibles primero
+export async function getStaticPaths() {
+    const postsPerPage = 6;
+
+    const allPosts = (await getCollection('blog'))
+        .filter(post => !post.data.draft)
+        .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+    const totalPages = Math.ceil(allPosts.length / postsPerPage);
+
+    return Array.from({ length: totalPages }, (_, i) => ({
+        params: { page: (i + 1).toString() },
+        props: {
+            totalPages,
+            allPosts // Pasamos los posts como prop
+        }
+    }));
+}
+
+// Obtener parámetros y props
+const { page = '1' } = Astro.params;
+const { totalPages, allPosts } = Astro.props;
+const currentPage = parseInt(page);
+
+// Calcular posts para la página actual
+const startIdx = (currentPage - 1) * postsPerPage;
+const endIdx = startIdx + postsPerPage;
+const paginatedPosts = allPosts.slice(startIdx, endIdx);
+---
+
+<BaseLayout title="Blog">
+    <section class="bg-gradient-to-br from-gray-900 to-black dark:bg-gray-900 dark:from-gray-800 dark:to-black min-h-screen">
+        <div class="relative">
+            <h1 class="text-4xl font-bold text-center text-white py-8">Blog</h1>
+            <Image
+                    class="absolute inset-0 object-cover w-full h-full opacity-50"
+                    src="/assets/images/img_1.png"
+                    alt="Imagen de fondo del blog"
+                    width={2000}
+                    height={1000}
+                    fit="cover"
+            />
+        </div>
+
+        <div class="container mx-auto px-4 py-10  lg:max-w-7xl max-w-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {paginatedPosts.map((post: any) => (
+                        <BlogCard post={post}/>
+                ))}
+            </div>
+        </div>
+
+
+        <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                baseUrl="/blog"
+                class="mt-12"
+        />
+
+
+    </section>
+</BaseLayout>
+
+<style>
+    * {
+        font-family: monospace ;
+    }
+</style>
