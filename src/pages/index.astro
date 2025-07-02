@@ -408,14 +408,15 @@ const LogoAscentWhiteLarge = "/assets/images/ASCENT_WHITE_Large.png";
 
 </style>
 
-<script>
-    // JavaScript para el efecto de aparición escalonada
-    const text = document?.getElementById("typewriter-text")?.innerText ?? ""; // Obtenemos el texto
-    if (!text) return; // Si no hay texto, no ejecutar el script
-    document.getElementById("typewriter-text").innerHTML = ""; // Limpiamos el texto
+<script is:client>
+    const textElement = document.getElementById("typewriter-text");
+    if (!textElement) return;
+
+    const text = textElement.innerText;
+    textElement.innerHTML = "";
 
     let i = 0;
-    const speed = 25; // Velocidad en milisegundos (ajusta según prefieras)
+    const speed = 25;
 
     function typeWriter() {
         if (i < text.length) {
@@ -423,11 +424,11 @@ const LogoAscentWhiteLarge = "/assets/images/ASCENT_WHITE_Large.png";
             span.textContent = text.charAt(i);
             span.style.opacity = "0";
             span.style.animation = `fadeIn 0.5s ${i * speed}ms forwards`;
-            document.getElementById("typewriter-text")?.appendChild(span);
+            textElement.appendChild(span);
             i++;
             setTimeout(typeWriter, speed);
         }
     }
 
-    typeWriter(); // Inicia la animación
+    typeWriter();
 </script>
