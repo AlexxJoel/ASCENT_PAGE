@@ -9,11 +9,6 @@ import image from '@astrojs/image';
 
 // https://astro.build/config
 export default defineConfig({
-    content: {
-        legacy: {
-            collections: true,
-        },
-    },
     markdown: {
         syntaxHighlight: 'shiki',
         shikiConfig: {
@@ -28,6 +23,6 @@ export default defineConfig({
     },
     site: 'https://example.com',
     integrations: [mdx(), sitemap(), tailwind(), image({
-        serviceEntryPoint: '@astrojs/image/sharp'
+        serviceEntryPoint: '@astrojs/image/sharp'   
     })],
 });
