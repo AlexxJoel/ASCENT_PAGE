@@ -24,7 +24,7 @@ const { title, description, icon } = Astro.props;
                 </div>
             </div>
             
-            <div class="p-8 prose prose-invert max-w-none">
+            <div class="p-8 prose max-w-none">
                 <slot />
             </div>
             
@@ -40,21 +40,3 @@ const { title, description, icon } = Astro.props;
     </section>
 </BaseLayout>
 
-<style>
-    .prose h2 {
-        color: theme('colors.white');
-        border-bottom: 2px solid theme('colors.blue.600');
-        padding-bottom: 0.5rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-    .prose p {
-        color: theme('colors.gray.300');
-        line-height: 1.6;
-    }
-    .prose ul {
-        list-style-type: disc;
-        padding-left: 1.5rem;
-        color: theme('colors.gray.300');
-    }
-</style>
