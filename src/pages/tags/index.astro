@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('blog');
+const uniqueTags = [...new Set(allPosts.flatMap(post => post.data.tags))];
+---
+
+<BaseLayout 
+    title="Blog Tags" 
+    description="Explore blog posts by tags"
+>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Blog Tags</h1>
+        
+        <div class="flex flex-wrap gap-4">
+            {uniqueTags.map(tag => (
+                <a 
+                    href={`/tags/${tag}`} 
+                    class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition"
+                >
+                    {tag}
+                </a>
+            ))}
+        </div>
+    </div>
+</BaseLayout>

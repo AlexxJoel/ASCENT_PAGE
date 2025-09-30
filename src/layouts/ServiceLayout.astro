@@ -1,0 +1,60 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Image } from '@astrojs/image/components';
+
+interface Props {
+    title: string;
+    description: string;
+    icon: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<BaseLayout title={`${title} - ASCENT`} description={description}>
+    <section class="bg-gradient-to-br from-black via-gray-800 via-70% to-gray-600 min-h-screen py-16 px-4">
+        <div class="container mx-auto max-w-4xl bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+            <div class="relative bg-gray-900 p-8 flex items-center">
+                <div class="mr-6">
+                    <i class={`feather feather-${icon} text-5xl text-blue-500`}></i>
+                </div>
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-white">{title}</h1>
+                    <p class="text-gray-300 mt-2">{description}</p>
+                </div>
+            </div>
+            
+            <div class="p-8 prose prose-invert max-w-none">
+                <slot />
+            </div>
+            
+            <div class="bg-gray-900 p-6 text-center">
+                <a 
+                    href="/services" 
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                >
+                    Volver a Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
+
+<style>
+    .prose h2 {
+        color: theme('colors.white');
+        border-bottom: 2px solid theme('colors.blue.600');
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    .prose p {
+        color: theme('colors.gray.300');
+        line-height: 1.6;
+    }
+    .prose ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        color: theme('colors.gray.300');
+    }
+</style>

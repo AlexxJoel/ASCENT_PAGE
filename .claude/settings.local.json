@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(src/components/blog )",
+      "Bash(src/components/ui )",
+      "Bash(src/content/projects )",
+      "Bash(src/utils )",
+      "Bash(src/config)",
+      "Bash(# Mover componentes de navegación y generales a common\nmv src/components/Nav.astro src/components/common/\nmv src/components/Icon.astro src/components/common/\n\n# Mover componentes de blog a blog\nmv src/components/BlogCard.astro src/components/blog/\nmv src/components/Pagination.astro src/components/blog/\n\n# Dejar componentes de botones en ui\nmv src/components/buttons/* src/components/ui/)",
+      "Bash(find:*)",
+      "Bash(npm run dev:*)",
+      "Bash(tree:*)",
+      "Bash(sed:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": []
+  }
+}
