@@ -1,107 +1,68 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import services from '../data/services.json';
-import { Image } from "@astrojs/image/components";
+import { slugify } from '../utils/helpers';
 
-type IconType = 'cpu' | 'activity' | 'settings' | 'bot' | 'eye';
-
-const iconMap = {
-    cpu: "lucide:cpu",
-    activity: "lucide:activity",
-    settings: "lucide:settings",
-    bot: "lucide:bot",
-    eye: "lucide:eye"
-};
+const services = await getCollection('services');
+const colors = ['blue', 'green', 'purple', 'red', 'yellow', 'blue'];
 ---
 
 <BaseLayout title="Servicios - ASCENT">
-    <section id="services" class="bg-gradient-to-br from-gray-900 to-black">
-
-        <div class="relative">
-            <h1 class="text-4xl font-bold text-center text-white py-8">Nuestros servicios</h1>
-            <Image
-                    class="absolute inset-0 object-cover w-full h-full opacity-50"
-                    src="/assets/images/img_2.jpg"
-                    alt="Imagen de fondo del blog"
-                    width={2000}
-                    height={1000}
-                    fit="cover"
-            />
+    <section id="servicios" class="bg-gradient-to-br from-black via-gray-800 via-70% to-gray-600 py-12 md:py-20 px-4 md:px-24 text-white">
+        <div class="container mx-auto text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fadeIn">
+                En ASCENT te ayudamos a mejorar el rendimiento, calidad y productividad de tu proceso.
+            </h2>
+            <p class="max-w-2xl mx-auto text-gray-300">
+                Ofrecemos soluciones integrales adaptadas a las necesidades específicas de tu industria.
+            </p>
         </div>
 
-        <div class="bg-gradient-to-br from-gray-900 to-black py-12 md:py-20 px-4 md:px-24 text-white">
-            <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Servicio 1 -->
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
                 <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
                     <div class="flex items-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-400" fill="none"
-                             viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" class={`h-6 w-6 mr-2 text-${colors[index]}-400`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            {index === 0 && (
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            )}
+                            {index === 1 && (
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                            )}
+                            {index === 2 && (
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            )}
+                            {index === 3 && (
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            )}
+                            {index === 4 && (
+                                <>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </>
+                            )}
+                            {index === 5 && (
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            )}
                         </svg>
-                        <h3 class="text-xl font-semibold">Optimización de Procesos Industriales</h3>
+                        <h3 class="text-xl font-semibold">{service.data.title}</h3>
                     </div>
                     <p class="text-gray-100">
-                        Ayudamos a mejorar la eficiencia de tu proceso industrial mediante sistemas de monitoreo en
-                        tiempo real y análisis de datos para detectar áreas de mejora.
+                        {service.data.description}
                     </p>
-                    <a href="#details" class="text-blue-400 hover:text-blue-600 font-semibold mt-4 inline-block">Leer
-                        más</a>
+                    <a 
+                        href={`/services/${slugify(service.data.title)}`} 
+                        class={`text-${colors[index]}-400 hover:text-${colors[index]}-600 font-semibold mt-4 inline-block`}
+                    >
+                        Leer más
+                    </a>
                 </div>
-
-                <!-- Servicio 2 -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-green-400" fill="none"
-                             viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-                        </svg>
-                        <h3 class="text-xl font-semibold">Monitoreo y Control en Tiempo Real</h3>
-                    </div>
-                    <p class="text-gray-100">
-                        Implementamos soluciones de monitoreo en tiempo real que te permiten gestionar los recursos,
-                        identificar fallas y mejorar el control de tus operaciones.
-                    </p>
-                    <a href="#details" class="text-blue-400 hover:text-blue-600 font-semibold mt-4 inline-block">Leer
-                        más</a>
-                </div>
-
-                <!-- Servicio 3 -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300">
-                    <div class="flex items-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-purple-400" fill="none"
-                             viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                        </svg>
-                        <h3 class="text-xl font-semibold">Automatización de Producción</h3>
-                    </div>
-                    <p class="text-gray-100">
-                        Automática tus líneas de producción con nuestras soluciones avanzadas para mejorar la
-                        consistencia, reducción de errores y aumento de la productividad.
-                    </p>
-                    <a href="#details" class="text-blue-400 hover:text-blue-600 font-semibold mt-4 inline-block">Leer
-                        más</a>
-                </div>
-            </div>
+            ))}
         </div>
     </section>
 </BaseLayout>
 
 <style>
-    .group:hover .text-blue-400 {
-        color: #fff;
-    }
-
-    .group:hover .bg-black/30 {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .group:hover .shadow-xl {
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-    }
-
     a {
         text-decoration: none;
     }
