@@ -4,7 +4,8 @@ description: "Mostrando cómo se ven los elementos markdown"
 pubDate: 2024-03-20
 heroImage: "https://picsum.photos/800/400"
 tags: ["markdown", "estilos", "ejemplo"]
-author: "Tu Nombre"
+author:
+  name: "Tu Nombre"
 ---
 
 # Título H1
