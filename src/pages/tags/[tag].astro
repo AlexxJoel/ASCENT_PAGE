@@ -27,14 +27,8 @@ const { posts } = Astro.props;
         <h1 class="text-3xl font-bold mb-8">Posts tagged with "{tag}"</h1>
         
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map(post => (
-                <BlogCard 
-                    title={post.data.title}
-                    description={post.data.description}
-                    pubDate={post.data.pubDate}
-                    heroImage={post.data.heroImage}
-                    slug={post.slug}
-                />
+            {posts.filter(Boolean).map(post => (
+                <BlogCard post={post} />
             ))}
         </div>
     </div>
