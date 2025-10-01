@@ -17,7 +17,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <!-- Columna derecha: Formulario -->
                 <div class="md:w-1/2 p-8">
                     <h1 class="text-3xl font-bold text-blue-400 mb-6 text-center animate-fadeIn">Contacto</h1>
-                    <form action="https://formspree.io/f/manjvkoq" method="POST" class="space-y-5">
+                    <form id="contactForm" class="space-y-5">
                         <div>
                             <label for="nombre" class="block text-gray-200 font-semibold">Nombre:</label>
                             <input type="text" id="nombre" name="nombre" required class="mt-1 block w-full rounded-md border border-gray-600 bg-gray-900/70 text-white shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
@@ -32,6 +32,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                         </div>
                         <button type="submit" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold shadow-lg transition duration-300 animate-fadeIn">Enviar</button>
                     </form>
+                    <script type="text/javascript">
+                        document.getElementById('contactForm').addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            function strictEncode(str) {
+                                return encodeURIComponent(str).replace(/%40/g, '@');
+                            }
+                            const nombre = document.getElementById('nombre').value;
+                            const email = document.getElementById('email').value;
+                            const mensaje = document.getElementById('mensaje').value;
+                            const destinatario = strictEncode('ascent@gmail.com'); // Cambia esto por tu correo real
+                            const asunto = strictEncode('Nuevo mensaje de contacto de ' + nombre);
+                            const cuerpo = strictEncode(`Nombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
+                            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${destinatario}&su=${asunto}&body=${cuerpo}`;
+                            window.open(gmailUrl, '_blank');
+                        });
+                    </script>
                 </div>
             </div>
         </div>
