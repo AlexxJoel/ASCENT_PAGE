@@ -54,7 +54,7 @@ const paginatedPosts = allPosts.slice(startIdx, endIdx);
 
         <div class="container mx-auto px-4 py-10  lg:max-w-7xl max-w-2xl">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {paginatedPosts.map((post: any) => (
+                {paginatedPosts.filter(Boolean).map((post: any) => (
                         <BlogCard post={post}/>
                 ))}
             </div>
