@@ -4,7 +4,8 @@ description: "Análisis de las mejores opciones para crear apps móviles"
 pubDate: 2024-01-25
 heroImage: "https://picsum.photos/1000/500?random=5"
 tags: ["mobile", "flutter", "react native", "swift"]
-author: "Miguel Ángel Pérez"
+author:
+  name: "Miguel Ángel Pérez"
 ---
 
 Opciones para desarrollo móvil:
